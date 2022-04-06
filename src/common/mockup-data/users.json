@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "email": "johnny_1989@gmail.com",
+        "password": "john-1989",
+        "username": "John Muir"
+    },
+    {
+        "id": 2,
+        "email": "arthur_mogan@gmail.com",
+        "password": "arthur-laughy",
+        "username": "Arthur Mogan"
+    },
+    {
+        "id": 3,
+        "email": "billy_will@hotmail.com",
+        "password": "billy-1985",
+        "username": "Billy Willenson"
+    }
+]
