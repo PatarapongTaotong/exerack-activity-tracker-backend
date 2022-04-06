@@ -4,6 +4,7 @@ const StatusEnum = require('../../../common/enum/status.enum')
 const ActivityController = {
     createActivity: async (req, res) => {
         try {
+            console.log('test')
             const payload = req.body
             const created = await ActivityService.create({ ...payload })
 
@@ -15,6 +16,22 @@ const ActivityController = {
             res.status(500).json({
                 "success": false,
                 "message": `[Error on create activity]: ${error.message}`
+            })
+        }
+    },
+    getAllActivitiesByUserId: async (req, res) => {
+        try {
+            const { uid } = req.params
+            const activities = await ActivityService.getAllActivitiesByUserId(uid)
+            
+            res.status(200).json({
+                "success": true,
+                "data": activities
+            })
+        } catch (error) {
+            res.status(500).json({
+                "success": false,
+                "message": `[Error on get all activities by user id]: ${error.message}`
             })
         }
     },

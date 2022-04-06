@@ -6,7 +6,7 @@ const ActivitySchema = new Schema({
     userId: {
         type: String,
         required: true
-    }
+    },
     activityType: {
         type: String,
         required: true
