@@ -16,6 +16,10 @@ const ActivitySchema = new Schema({
         minlength: [4, 'Activity name should contain at least 4 characters'],
         required: true
     },
+    icon: {
+        type: String,
+        required: true
+    },
     activityDescription: {
         type: String,
         minlength: [10, 'Activity description should contain at least 4 characters'],

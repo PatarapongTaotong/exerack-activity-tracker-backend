@@ -4,7 +4,6 @@ const StatusEnum = require('../../../common/enum/status.enum')
 const ActivityController = {
     createActivity: async (req, res) => {
         try {
-            console.log('test')
             const payload = req.body
             const created = await ActivityService.create({ ...payload })
 

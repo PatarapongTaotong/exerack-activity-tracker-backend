@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     })
 })
 
-const PORT = 3030
+const PORT = 4000
 
 app.listen(PORT, () => {
     console.log(`MY REST API IS RUNNNING ON PORT ${PORT}`)
