@@ -6,7 +6,6 @@ const ActivityController = {
         try {
             const payload = req.body
             const created = await ActivityService.create({ ...payload })
-
             res.status(201).json({
                 "success": true,
                 "data": created
