@@ -20,7 +20,7 @@ const checkToken = (req, res, next) => {
     if (token && decoded.exp <= Date.now() / 1000) {
         return res.status(401).json({
             "success": false,
-            "message": "token expored"
+            "message": "token expired"
         })
     }
 
