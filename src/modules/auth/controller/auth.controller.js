@@ -7,8 +7,8 @@ dotenv.config()
 const AuthController = {
     login: async (req, res) => {
         try {
-            const { username, password } = req.body
-            const user = await UserService.findByUsername(username)
+            const { email, password } = req.body
+            const user = await UserService.findByEmail(email)
 
             if (!user) {
                 res.status(404).json({
@@ -28,7 +28,7 @@ const AuthController = {
             if (valid) {
                 const token = createToken({
                     "id": user._id,
-                    "username": user.username
+                    "email": user.email
                 })
 
                 res.status(200).json({

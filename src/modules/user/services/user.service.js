@@ -17,8 +17,8 @@ const UserService = {
     deleteById (id) {
         return UserModel.findOneAndUpdate({ _id: id }, { $set: { status: StatusEnum.DELETED } })
     },
-    findByUsername (username) {
-        return UserModel.findOne({ username })
+    findByEmail (email) {
+        return UserModel.findOne({ email })
     }
 }
 
