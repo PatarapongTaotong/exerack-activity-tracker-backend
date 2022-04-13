@@ -18,7 +18,7 @@ const UserService = {
         return UserModel.findOneAndUpdate({ _id: id }, { $set: { status: StatusEnum.DELETED } })
     },
     findByEmail (email) {
-        return UserModel.findOne({ email })
+        return UserModel.findOne({ email, status: StatusEnum.ACTIVE })
     }
 }
 

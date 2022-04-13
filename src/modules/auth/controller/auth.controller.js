@@ -17,26 +17,27 @@ const AuthController = {
                 })
             }
 
-            const valid = md5(`${password}${process.env.MD5_SALT}`) === user.password
-            if (!valid) {
-                res.status(401).json({
-                    "success": false,
-                    "message": "password invalid"
-                })
+            if (user) {
+                const valid = md5(`${password}${process.env.MD5_SALT}`) === user.password
+                if (!valid) {
+                    res.status(401).json({
+                        "success": false,
+                        "message": "password invalid"
+                    })
+                }
+
+                if (valid) {
+                    const token = createToken({
+                        "id": user._id,
+                        "email": user.email
+                    })
+
+                    res.status(200).json({
+                        "success": true,
+                        "data": token
+                    })
+                }
             }
-
-            if (valid) {
-                const token = createToken({
-                    "id": user._id,
-                    "email": user.email
-                })
-
-                res.status(200).json({
-                    "success": true,
-                    "data": token
-                })
-            }
-
         } catch (error) {
             res.status(500).json({
                 "success": false,

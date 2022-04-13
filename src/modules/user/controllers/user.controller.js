@@ -8,14 +8,23 @@ const UserController = {
     createUser: async (req, res) => {
         try {
             const payload = req.body
-            const { password } = req.body
-            const encrytedPassword = md5(`${password}${process.env.MD5_SALT}`)
-            const created = await UserService.create({ ...payload, password: encrytedPassword })
+            const { email ,password } = req.body
 
-            res.status(201).json({
-                "success": true,
-                "data": created
-            })
+            const existedUser = await UserService.findByEmail(email)
+            if (existedUser) {
+                res.status(400).json({
+                    "success": false,
+                    "data": 'this email already been used'
+                })
+            } else {
+                const encrytedPassword = md5(`${password}${process.env.MD5_SALT}`)
+                const created = await UserService.create({ ...payload, password: encrytedPassword })
+
+                res.status(201).json({
+                    "success": true,
+                    "data": created
+                })
+            }
         } catch (error) {
             res.status(500).json({
                 "success": false,

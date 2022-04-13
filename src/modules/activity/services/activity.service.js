@@ -19,6 +19,9 @@ const ActivityService = {
     },
     deleteById (id) {
         return ActivityModel.findOneAndUpdate({ _id: id }, { $set: { status: StatusEnum.DELETED } })
+    },
+    getAllActivitiesByUserId (userId, limit = 0) {
+        return ActivityModel.find({ userId, status: StatusEnum.ACTIVE }).sort({ date: -1 }).limit(limit)
     }
 }
 

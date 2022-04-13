@@ -20,7 +20,8 @@ const ActivityController = {
     getAllActivitiesByUserId: async (req, res) => {
         try {
             const { uid } = req.params
-            const activities = await ActivityService.getAllActivitiesByUserId(uid)
+            const { limit } = req.query
+            const activities = await ActivityService.getAllActivitiesByUserId(uid, +limit)
             
             res.status(200).json({
                 "success": true,
