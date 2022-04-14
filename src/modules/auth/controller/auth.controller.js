@@ -13,7 +13,7 @@ const AuthController = {
             if (!user) {
                 res.status(404).json({
                     "success": false,
-                    "message": "user not found"
+                    "message": "User not found"
                 })
             }
 
@@ -22,7 +22,7 @@ const AuthController = {
                 if (!valid) {
                     res.status(401).json({
                         "success": false,
-                        "message": "password invalid"
+                        "message": "Password invalid"
                     })
                 }
 
