@@ -1,5 +1,4 @@
 const Joi = require('joi')
-const StatusEnum = require('../../../common/enum/status.enum')
 
 const CreateActivityDto = Joi.object({
     userId: Joi.string().required(),
