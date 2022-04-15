@@ -22,6 +22,9 @@ const ActivityService = {
     },
     getAllActivitiesByUserId (userId, limit = 0) {
         return ActivityModel.find({ userId, status: StatusEnum.ACTIVE }).sort({ date: -1 }).limit(limit)
+    },
+    paginate (query, paginate) {
+        return ActivityModel.paginate(query, paginate)
     }
 }
 

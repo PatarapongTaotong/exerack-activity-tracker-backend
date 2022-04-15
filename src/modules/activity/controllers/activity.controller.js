@@ -1,5 +1,6 @@
 const ActivityService = require('../services/activity.service')
 const StatusEnum = require('../../../common/enum/status.enum')
+const PaginateActivities = require('../dto/paginate-activities.dto')
 
 const ActivityController = {
     createActivity: async (req, res) => {
@@ -20,8 +21,8 @@ const ActivityController = {
     getAllActivitiesByUserId: async (req, res) => {
         try {
             const { uid } = req.params
-            const { limit } = req.query
-            const activities = await ActivityService.getAllActivitiesByUserId(uid, +limit)
+            const { result, options } = PaginateActivities.buildQuery(req.query)
+            const activities = await ActivityService.paginate({ ...result, userId: uid }, options)
             
             res.status(200).json({
                 "success": true,

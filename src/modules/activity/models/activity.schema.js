@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const { Schema, model } = mongoose
 const StatusEnum = require('../../../common/enum/status.enum')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
 const ActivitySchema = new Schema({
     userId: {
@@ -40,6 +41,8 @@ const ActivitySchema = new Schema({
         default: StatusEnum.ACTIVE
     }
 }, { timestamps: true, strict: true })
+
+ActivitySchema.plugin(mongoosePaginate)
 
 const ActivityModel = model('activities', ActivitySchema)
 
