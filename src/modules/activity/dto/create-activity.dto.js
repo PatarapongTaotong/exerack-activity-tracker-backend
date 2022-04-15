@@ -9,7 +9,6 @@ const CreateActivityDto = Joi.object({
     activityDescription: Joi.string().min(10).required(),
     date: Joi.date().required(),
     duration: Joi.number().min(0).required(),
-    status: Joi.string().default('SrtatusEnum.ACTIVE')
 })
 
 module.exports = CreateActivityDto
