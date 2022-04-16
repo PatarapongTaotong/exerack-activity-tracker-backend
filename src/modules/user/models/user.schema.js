@@ -15,6 +15,10 @@ const UserSchema = new Schema({
         type: String,
         default: null
     },
+    imgUrl: {
+        type: String,
+        default: null
+    },
     status: {
         type: String,
         enum: Object.values(StatusEnum),
