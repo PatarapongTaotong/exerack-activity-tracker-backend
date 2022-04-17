@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6d530ea3-9ac7-4f6b-97e3-6010ea8c1995/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/exerack-service",
+    "appService.deploySubpath": "."
+}
